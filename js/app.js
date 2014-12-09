@@ -12,7 +12,7 @@ $(".radio").hover(
         elmt.hide();
     }
 );
-
+var prix=0;
 var tmp = 0;
 var tmp2 = 0;
 var tmp3 = 0;
@@ -23,7 +23,7 @@ $(".type.nb-parts").children("input").keypress(function (e) {
     if(key == 13)  // the enter key code
     {
         var input_value = $(this).val();
-        var val_part = parseInt($(this).data('price'));
+        var val_part = tmp;
         var elmt = $(this).parent().children(".pizza-pict");
 
         switch (input_value){
@@ -56,7 +56,7 @@ $(".type.nb-parts").children("input").keypress(function (e) {
             break;
           }
 
-          $("p").text(tmp+tmp2+tmp3+tmp4+"$");
+          $("p").text(tmp2+tmp3+tmp4+"$");
     }
 });
 
@@ -83,19 +83,22 @@ $(".radio").click(
   function(){
     var price_pizza = $(this).children("input[name='type']");
     var price_pate = $(this).children("input[name='pate']");
-    var val_pizza = parseInt(price_pizza.data('price'));
+    var val_pizza = parseInt(price_pizza.data('price'))/6;
     var val_pate = parseInt(price_pate.data('price'));
+
 
     if(isNaN(val_pizza)) {
       var val_pizza = 0;
     }
-    else tmp = val_pizza;
+    else {
+      tmp = val_pizza;
+    }
 
     if(isNaN(val_pate)) {
       var val_pate = 0;
     }
     else tmp2 = val_pate;
-    $("p").text(tmp+tmp2+tmp3+tmp4+"$");
+    $("p").text(tmp2+tmp3+tmp4+"$");
   }
 );
 
@@ -107,6 +110,6 @@ $(".type").children(".checkbox").click(
     tmp3 -= val_extra;
   }
   else tmp3 += val_extra;
-  $("p").text(tmp+tmp2+tmp3+tmp4+"$");
+  $("p").text(tmp2+tmp3+tmp4+"$");
   }
 );
