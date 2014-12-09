@@ -1,7 +1,6 @@
 TP JQuery
 ==================
 
-# ECE PROJECT
 This is a web tp project for Rich Client Technologies (ECE Paris).
 
 ## Description
